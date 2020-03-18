@@ -1,0 +1,15 @@
+#!/bin/sh
+image="node:13"
+base="$(basename $0)"
+prog="docker run --tty --interactive --rm --name nodejs --init --network host --user node -v "$PWD":/home/node -w /home/node $image"
+case "$base" in
+    node)
+        $prog $@
+        ;;
+    npm)
+        $prog npm $@
+        ;;
+    npx)
+       $prog npx $@
+       ;;
+esac

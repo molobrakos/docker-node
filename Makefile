@@ -1,5 +1,5 @@
 DST=$(HOME)/.local/bin
-BIN=node npm npx
+BIN=$(notdir $(wildcard bin/*))
 ALL=$(addprefix $(DST)/, $(BIN))
 
 .PHONY: default

@@ -1,5 +1,5 @@
 #!/bin/sh
-image="node:13"
+image="node:13-slim"
 base="$(basename $0)"
 prog="docker run --tty --interactive --rm --name nodejs --init --network host --user node -v "$PWD":/home/node -w /home/node $image"
 case "$base" in
@@ -10,6 +10,6 @@ case "$base" in
         $prog npm $@
         ;;
     npx)
-       $prog npx $@
-       ;;
+        $prog npx $@
+        ;;
 esac
